@@ -2,6 +2,10 @@ xrandr-manage
 ==
 Manage dual display on Linux.
 
+Require
+--
+* xrandr *(pacman -S xorg-xrandr)*
+
 Installation
 --
 Create symblic link of **xrandr-manage.sh**. *(Require administrator rights)*
@@ -11,7 +15,6 @@ Create symblic link of **xrandr-manage.sh**. *(Require administrator rights)*
 
 Usage
 --
-
 * Set dual display.
 ```sh
 $ xrandr-manage on

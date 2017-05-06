@@ -5,15 +5,15 @@ SUBS=('HDMI1' 'VGA1')
 
 
 reset_screen() { #{{{1
-	local file
-	for file in $1; do
-		if [ -e ~/.$file ]; then
-			rm -f ~/.$file
-			xrandr --output $MAIN --auto --output $file --off
+	local screen
+	for screen in $1; do
+		if [ -e ~/.$screen ]; then
+			rm -f ~/.$screen
+			xrandr --output $MAIN --auto --output $screen --off
 		fi
 	done
 
-	if [ $out_dis = 'not' ]; then
+	if [ $sub_screen = 'not' ]; then
 		echo 'Not found second display'
 		exit 0
 	fi
@@ -35,34 +35,34 @@ find_scrren_info() { #{{{1
 	done
 } # }}}1 END functions
 
-main=$(find_scrren_info $MAIN 'size')
-out_dis=$(find_scrren_info $SUBS 'name')
+main_size=$(find_scrren_info $MAIN 'size')
+sub_screen=$(find_scrren_info $SUBS 'name')
 
-# 引数処理 {{{1
+# set argument {{{1
 var=null
 if [ $# = 1 ]; then
 	var=${1}
 fi
 
-# モード決定処理 #{{{1
+# switch execute mode #{{{1
 case $var in
 	'on')
 		reset_screen $SUBS
-		xrandr --output $MAIN --auto --output $out_dis --auto --right-of $MAIN
-		touch ~/.$out_dis
-		echo "Set dual display ($out_dis)"
+		xrandr --output $MAIN --auto --output $sub_screen --auto --right-of $MAIN
+		touch ~/.$sub_screen
+		echo "Set dual display ($sub_screen)"
 		;;
 
 	'mirror')
 		reset_screen $SUBS
-		xrandr --output $MAIN --auto --output $out_dis --auto --same-as $MAIN --scale-from $main
-		touch ~/.$out_dis
-		echo "Set mirror display ($out_dis)"
+		xrandr --output $MAIN --auto --output $sub_screen --auto --same-as $MAIN --scale-from $main_size
+		touch ~/.$sub_screen
+		echo "Set mirror display ($sub_screen)"
 		;;
 
 	'off')
 		reset_screen $SUBS
-		echo "Off second display ($out_dis)"
+		echo "Off second display ($sub_screen)"
 		;;
 
 	*)
