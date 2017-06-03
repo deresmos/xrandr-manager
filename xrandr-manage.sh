@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MAIN='LVDS1'
-SUBS=('HDMI1' 'VGA1')
+SUBS=('HDMI1' 'VGA1' 'DP1')
 
 
 reset_screen() { #{{{1
