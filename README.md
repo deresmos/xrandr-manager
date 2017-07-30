@@ -8,7 +8,7 @@ Require
 
 Installation
 --
-Create symblic link of **xrandr-manage.sh**. *(Require administrator rights)*
+Create symbolic link of **xrandr-manage.sh**. *(Require administrator rights)*
 ```sh
 ./link.sh
 ```
