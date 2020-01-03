@@ -1,0 +1,3 @@
+workflow:
+  - .github/*.yml
+  - .github/workflows/**/*

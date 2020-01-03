@@ -1,6 +1,12 @@
-xrandr-manage
+xrandr-manager
 ==
-Manage dual display on Linux.
+[![PyPI](https://badge.fury.io/py/xrandr-manager.svg)](https://badge.fury.io/py/xrandr-manager)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/deresmos/xrandr-manager/blob/master/LICENSE)
+
+
+About
+--
+Manage display on Linux.
 
 Require
 --
@@ -8,28 +14,33 @@ Require
 
 Installation
 --
-Create symbolic link of **xrandr-manage.sh**. *(Require administrator rights)*
 ```sh
-./link.sh
+  pip install xrandr-manager
 ```
 
 Usage
 --
-* Set dual display.
+- Set all display.
 ```sh
-$ xrandr-manage on
+xrandr-manager
 ```
 
-* Set mirror display.
+- Set mirror display.
 ```sh
-$ xrandr-manage mirror
+xrandr-manager --mirror
 ```
 
-* Off dual display.
+- Only main display.
 ```sh
-$ xrandr-manage off
+xrandr-manager --off
 ```
 
-License
---
-Released under the MIT license, see LICENSE.
+- Select main display from prompt.
+```sh
+xrandr-manager --prompt
+```
+
+- Show help.
+```sh
+xrandr-manager --help
+```
