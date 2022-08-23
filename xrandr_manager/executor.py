@@ -12,7 +12,7 @@ logger = getLogger("xrandr-manager")
 
 class XrandrExecutor:
     CONNECTED_PATTERN = re.compile(r"([a-zA-Z0-9-]*?)\sconnected\s")
-    SIZE_PATTERN = re.compile(r"(\d{3,4}x\d{3,4})\s+\d{2,3}.\d{2,3}")
+    SIZE_PATTERN = re.compile(r"(\d{3,4}x\d{3,4}i?)\s+\d{2,3}.\d{2,3}")
 
     @staticmethod
     def execute(command: str, is_dryrun: bool = True) -> None:
